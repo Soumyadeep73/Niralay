@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Niralay</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="niralay.js"></script>
+        <style>@import url(https://fonts.googleapis.com/css?family=Roboto:300);
+            .container {
+    margin-top: 50px;
+    margin: 0 auto;
+    max-width: 600px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  input[type="text"], input[type="submit"], input[type="reset"] {
+    display: block;
+    margin: 0 auto;
+    width: 60%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #626262;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  input[type="submit"] {
+    background-color: #a97e48;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    background-color: #945b0c;
+  }
+
+  input[type="reset"] {
+    background-color: #e85a5a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  input[type="reset"]:hover {
+    background-color: #ae0f0f;
+  }
+            p{
+                align-content: center;
+                color: rgb(86, 37, 38);
+                font-size: 30px;
+                text-emphasis-color: black;
+                text-shadow: black;
+                text-decoration: wavy;
+                font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+            h1{
+                text-shadow: black;
+                font-size: 15px;
+                font-family: 'Gill Sans';
+            }
+            .img{
+                background: url("pexels-ovan-62693.jpg");
+                background-repeat: no-repeat;
+                background-size: auto;
+                background-size: 100% 100%;
+                -webkit-filter: blur(5px);
+                -moz-filter: blur(5px);
+                -o-filter: blur(5px);
+                -ms-filter: blur(5px);
+                filter: blur(5px);
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top:0;
+                left: 0;
+                z-index: -1;
+            }
+            
+            body, html{
+                height: 100%;
+            }
+            </style>
+    </head>
+    <body>
+        <p align="center"><strong>NIRALAY</strong></p>
+        <h1 align="center">(Kolkata House Price Predictor)</h1>
+        <div class="img"></div>
+        <h1 align="center">---Enter the Details---</h1>
+        <div class="container">
+            <form action="/predict" method="post">
+              <br>
+              <label for="sqft"><b>Square Feet:</b></label>
+              <input type="text" id="sqft" name="sqft">
+
+              <h4>List of BHK:</h4>
+              <ul>
+                [1,2,3,4]
+              </ul>
+              <label for="BHK"><b>BHK:(Write from above List only)</b></label>
+              <input type="text" id="BHK" name="BHK">
+
+              <h4>List of Locations:</h4>
+              <ul>
+                ["alipore", "baguiati", "ballygunge", "bansdroni",
+                "baranagar", "barasat", "barisha purba para road", "barrackpore", 
+                "behala", "belghoria", "bhawanipur", "biren roy road", 
+                "bramhapur", "budge budge", "chandannagar", "chinar park", 
+                "dhakuria", "dum dum", "durgapur", "e m bypass", "elgin", "garia",
+                "gariahat", "haltu", "hooghly chinsurah", "howrah", "hussainpur",
+                "international airport", "jadavpur", "jessore road", "jodhpur park",
+                "joka", "kaikhali", "kalighat", "kamalgazi", "kankurgachi", "kasba",
+                "keshtopur", "khardah", "konnagar", "lake gardens", "lake town", 
+                "madhyamgram", "madurdaha", "madurdaha hussainpur", "maheshtala", 
+                "maniktala", "mankundu", "mukundapur", "n s c bose road  narendrapur", 
+                "naktala", "narendrapur", "nayabad", "netaji nagar", "new alipore",
+                "new town", "north dumdum", "paschim putiary", "patuli", "picnic garden",
+                "prince anwar shah connector", "rajarhat", "rajpur", "salt lake city",
+                "santoshpur", "sarsuna", "sodepur", "sonarpur", "tagore park", "tangra",
+                "tiljala", "tollygunge", "topsia", "ultadanga", "uttarpara kotrung", 
+                "birati", "kalikapur", "south dum dum"]
+              </ul>
+              <label for="locations"><b>Locations:(write from above list only)</b></label>
+              <input type="text" id="locations" name="locations">
+
+              <input type="submit" class="btn btn-primary" value="Submit" id="subid">
+              <input type="reset" class="btn btn-danger" value="Reset">
+            </form>
+        </div>
+        <div id="output">
+            <span id="data"></span>
+        </div>
+        <div class="container" align="center">
+          <label for="Predicted"><b>The Predicted Price is[in Laks]:</b></label>
+          <p>{{ data }}</p>
+        </div>
+        </h1></div>
+    </body>
+</html>
